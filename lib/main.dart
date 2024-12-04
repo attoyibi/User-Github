@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'features/profile/presentation/profile_screen.dart'; // Sesuaikan import dengan path project Anda
 import 'features/user_detail/presentation/user_detail_screen.dart'; // Sesuaikan import dengan path project Anda
-import 'features/favorite/presentation/favorite_screen.dart'; // Sesuaikan import dengan path project Anda
+// import 'features/favorite/presentation/favorite_screen.dart'; // Sesuaikan import dengan path project Anda
 import 'injection_container.dart';
 
 void main() {

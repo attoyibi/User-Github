@@ -5,9 +5,11 @@ import 'features/profile/presentation/profile_screen.dart'; // Sesuaikan import 
 import 'features/user_detail/presentation/user_detail_screen.dart'; // Sesuaikan import dengan path project Anda
 // import 'features/favorite/presentation/favorite_screen.dart'; // Sesuaikan import dengan path project Anda
 import 'injection_container.dart';
+// import './database//database_helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // await DatabaseHelper.initializeDatabase();
   init(); // Initialize dependency injection
   runApp(ModularApp(
     module: AppModule(),

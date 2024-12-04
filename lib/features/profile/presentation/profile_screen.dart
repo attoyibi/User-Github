@@ -146,49 +146,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Center(
               child: Column(
                 children: [
-                  ElevatedButton(
-                    onPressed:
-                        _getCurrentLocation, // Memanggil fungsi untuk mendapatkan lokasi
-                    child: const Text('Refresh Geolocation'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightBlueAccent,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                  // Tombol Refresh Geolocation
+                  SizedBox(
+                    width: double.infinity, // Lebar penuh
+                    child: ElevatedButton(
+                      onPressed: _getCurrentLocation,
+                      child: const Text('Refresh Geolocation'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.lightBlueAccent,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 8),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Capture photo logic here
-                    },
-                    child: const Text('Capture Photo Picture'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightBlueAccent,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+
+                  // Tombol Capture Photo
+                  SizedBox(
+                    width: double.infinity, // Lebar penuh
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Capture photo logic here
+                      },
+                      child: const Text('Capture Photo Picture'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.lightBlueAccent,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 8),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Select from gallery logic here
-                    },
-                    child: const Text('Select Gallery'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightBlueAccent,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+
+                  // Tombol Select Gallery
+                  SizedBox(
+                    width: double.infinity, // Lebar penuh
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Select from gallery logic here
+                      },
+                      child: const Text('Select Gallery'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.lightBlueAccent,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
+            const SizedBox(height: 32),
           ],
         ),
       ),

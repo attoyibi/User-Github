@@ -41,10 +41,12 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
     userDetail = fetchUserDetail(widget.username);
     userDetail.then((data) {
       setState(() {
-        _user = User.fromMap(data); // Konversi data ke objek User
+        _user = User.fromMap(data);
       });
+      print(
+          "User object after setState: $_user"); // Print _user setelah setState
+      _checkIfFavorited(); // Cek apakah pengguna ini sudah favorit
     }).catchError((error) {
-      // Tangani error jika perlu
       print('Error fetching user details: $error');
     });
   }
@@ -52,6 +54,8 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
 // Cek apakah pengguna sudah disimpan sebagai favorit
   void _checkIfFavorited() async {
     final users = await DatabaseHelper().getAllUsers();
+    print(
+        "users inside checkifFavorite: $users"); // Print _user setelah setState
     setState(() {
       _isFavorited = users.any((user) => user.username == _user.username);
     });
@@ -59,6 +63,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
 
   // Menandai pengguna sebagai favorit
   void _toggleFavorite() async {
+    print("User to be saved: $_user");
     if (_isFavorited) {
       // Hapus dari favorit
       // final users = await DatabaseHelper().getAllUsers();
@@ -66,15 +71,20 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
       // await DatabaseHelper().deleteUser(user.id!);
     } else {
       // Simpan sebagai favorit
-      print('User Details: ${_user.toMap()}');
       // await DatabaseHelper().insertUser(_user);
     }
 
     setState(() {
       _isFavorited = !_isFavorited;
-      print(
-          'Is Favorited: $_isFavorited'); // Menampilkan nilai _isFavorited ke konsol
     });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          _isFavorited ? 'Added to favorites!' : 'Removed from favorites!',
+        ),
+      ),
+    );
   }
 
   @override
